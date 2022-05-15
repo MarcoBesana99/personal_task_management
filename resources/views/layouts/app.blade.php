@@ -334,7 +334,4 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
-    <script>
-        $('.test').hide()
-    </script>
 </html>

@@ -12,9 +12,6 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
         <!-- Page Content -->
@@ -332,6 +329,12 @@
                     </footer>
                 </main>
                 </div>
+                <div class="test"></div>
         </main>
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
+    <script>
+        $('.test').hide()
+    </script>
 </html>

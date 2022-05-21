@@ -9,12 +9,14 @@ class ProjectRepository implements ProjectRepositoryInterface
 {
 	public function getAllProjects(int|null $pager = null)
 	{
+		$query = Project::orderBy('created_at')->filter();
+
 		if (!empty($pager))
 		{
-			return Project::paginate($pager);
+			return $query->paginate($pager);
 		}
 		
-		return Project::all();
+		return $query->all();
 	}
 
 	public function getProjectById(int $id)

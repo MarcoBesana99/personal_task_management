@@ -8,6 +8,26 @@
 				{{ __('Create a project') }}
 			</a>
 		</div>
+		<div class="flex mt-5">
+			<a 
+				class="mr-4 hover:text-indigo-500 hover:font-bold transition-all {{ !request()->has('newest') && !request()->has('expired') ? 'text-indigo-500 font-bold' : 'text-gray-300' }}" 
+				href="{{ route('project.index', ['page' => request()->get('page', 1)]) }}"
+			>
+				{{ __('All') }}
+			</a>
+			<a
+				class="mr-4 hover:text-indigo-500 hover:font-bold transition-all {{ request()->has('newest') ? 'text-indigo-500 font-bold' : 'text-gray-300' }}"
+				href="{{ route('project.index', ['page' => request()->get('page', 1), 'newest' => 1]) }}"
+			>
+				{{ __('Recently') }}
+			</a>
+			<a 
+				class="mr-4 hover:text-indigo-500 hover:font-bold transition-all {{ request()->has('expired') ? 'text-indigo-500 font-bold' : 'text-gray-300' }}"
+				href="{{ route('project.index', ['page' => request()->get('page', 1), 'expired' => 1]) }}"
+			>
+				{{ __('Expired') }}
+			</a>
+		</div>
 		@if (session('success'))
 			<x-alert type="success" :message="session('success')"/>
 		@endif
@@ -29,7 +49,7 @@
 		</div>
 		@if ($projects->isNotEmpty())
 			<div class="mt-5">
-				{{ $projects->links() }}
+				{{ $projects->withQueryString()->links() }}
 			</div>
 		@endif
 	</div>

@@ -12,6 +12,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @stack('styles')
     </head>
     <body class="font-sans antialiased">
         <!-- Page Content -->
@@ -20,11 +21,7 @@
             <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
                 <x-header></x-header>
                 <div class="main-content flex flex-col flex-grow p-4">
-                <h1 class="font-bold text-2xl text-gray-700">Dashboard</h1>
-        
-                <div
-                    class="flex flex-col flex-grow border-4 border-gray-400 border-dashed bg-white rounded mt-4"
-                ></div>
+                    @yield('content')
                 </div>
                 <x-footer></x-footer>
             </main>

@@ -32,8 +32,8 @@ class ProjectRepository implements ProjectRepositoryInterface
 		return Project::create($data);
 	}
 
-	public function getProjectsCount(User $user)
+	public function getProjectsCount(int $userId)
 	{
-		return Project::where('user_id', $user->id)->count();
+		return Project::where('user_id', $userId)->count();
 	}
 }

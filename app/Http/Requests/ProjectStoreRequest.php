@@ -40,7 +40,7 @@ class ProjectStoreRequest extends FormRequest
     protected function prepareForValidation()
     {
         $this->merge([
-            'start_date' => Carbon::parse($this->start_date),
+            'start_date' => !is_null($this->start_date) ? Carbon::parse($this->start_date) : null,
             'end_date' => !is_null($this->end_date) ? Carbon::parse($this->end_date) : null,
         ]);
     }

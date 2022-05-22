@@ -34,6 +34,6 @@ class AsideBar extends Component
 
     private function setProjectsCount() : void
     {
-        $this->projectsCount = $this->projectRepository->getProjectsCount(auth()->user());
+        $this->projectsCount = $this->projectRepository->getProjectsCount(auth()->id());
     }
 }

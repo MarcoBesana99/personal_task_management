@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectStoreRequest;
 use App\Models\Project;
+use App\Models\User;
 use App\Repositories\Interfaces\ProjectRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $projects = $this->projectRepository->getAllProjects(12);
+        $projects = $this->projectRepository->getAllProjects(12, auth()->id());
 
         return view('areas.project.index', compact('projects'));
     }

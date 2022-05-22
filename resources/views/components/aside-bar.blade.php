@@ -32,6 +32,7 @@ class="sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0 trans
                     :href="route('project.index')" 
                     :isActive="request()->routeIs('project.*')" 
                     :text="__('Projects')"
+                    :badge="$projectsCount"
                 />
             </li>
             <li class="my-px">
